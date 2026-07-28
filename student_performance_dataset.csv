@@ -1,0 +1,104 @@
+Student_ID,Gender,Age,Study_Hours,Attendance,Previous_Marks,Assignments_Completed,Internal_Marks,Extracurricular,Internet_Access,Parent_Education,Final_Exam_Marks
+S001,Female,19.0,5.0,82.0,89.0,5.0,30.0,No,No,High School,68.0
+S002,Male,21.0,1.0,82.0,45.0,4.0,,No,Yes, graduate ,68.0
+S003,Female,19.0,4.0,75.0,78.0,,30.0, yes ,,Post Graduate,68.0
+S004,male,21.0,2.0,,56.0,5.0,30.0,Yes,No, graduate ,
+S005,Male,20.0,2.0,90.0,45.0,5.0,35.0, yes ,No,Post Graduate,
+S006,Female,19.0,4.0,90.0,,,20.0,No,Yes,Graduate,
+S007,male,21.0,2.0,90.0,56.0,,25.0,No,,High School,40.0
+S008,male,19.0,,90.0,89.0,4.0,20.0, yes ,,Post Graduate,68.0
+S009,Male,,3.0,82.0,,3.0,,NO,,High School,72.0
+S010, FEMALE ,18.0,3.0,82.0,78.0,5.0,25.0, yes ,, graduate ,85.0
+S011,Male,,3.0,82.0,,,25.0,NO,No,Post Graduate,55.0
+S012,Male,,4.0,105.0,89.0,3.0,35.0,Yes,Yes,Graduate,68.0
+S013, FEMALE ,21.0,2.0,90.0,78.0,5.0,35.0, yes ,, graduate ,40.0
+S014,Female,19.0,2.0,90.0,89.0,5.0,25.0, yes ,,High School,
+S015,Female,20.0,2.0,90.0,67.0,5.0,20.0,Yes,No,Post Graduate,85.0
+S016,Male,,4.0,90.0,56.0,5.0,,No,Yes,Post Graduate,85.0
+S017,Male,18.0,4.0,82.0,89.0,5.0,,NO,,Post Graduate,72.0
+S018,male,20.0,6.0,,-5.0,5.0,25.0,No,,High School,
+S019,Female,19.0,2.0,90.0,78.0,3.0,30.0,Yes,Yes,Graduate,40.0
+S020,Female,20.0,2.0,105.0,67.0,3.0,20.0,Yes,Yes,Post Graduate,
+S021, FEMALE ,,3.0,,-5.0,5.0,25.0,No,Yes, graduate ,68.0
+S022,Female,20.0,6.0,105.0,-5.0,4.0,30.0, yes ,Yes, graduate ,68.0
+S023,Male,18.0,2.0,105.0,89.0,,30.0, yes ,No,High School,55.0
+S024,Male,20.0,1.0,82.0,78.0,4.0,30.0,NO,No,Graduate,55.0
+S025,Female,19.0,5.0,90.0,-5.0,4.0,35.0,Yes,,Post Graduate,
+S026,male,20.0,5.0,90.0,,,, yes ,Yes,High School,72.0
+S027,male,20.0,,82.0,89.0,,,NO,Yes,High School,55.0
+S028, FEMALE ,21.0,,105.0,45.0,4.0,35.0, yes ,No,Post Graduate,40.0
+S029, FEMALE ,18.0,3.0,75.0,67.0,4.0,30.0,No,Yes,High School,68.0
+S030, FEMALE ,21.0,2.0,75.0,45.0,3.0,, yes ,,High School,72.0
+S031,male,18.0,1.0,105.0,-5.0,3.0,25.0,Yes,No,Post Graduate,85.0
+S032,Male,20.0,,90.0,89.0,3.0,35.0,Yes,, graduate ,
+S033, FEMALE ,,6.0,90.0,89.0,,30.0,NO,Yes, graduate ,68.0
+S034,Male,21.0,2.0,,67.0,4.0,25.0,Yes,Yes,Post Graduate,72.0
+S035,Male,20.0,1.0,82.0,,4.0,30.0,Yes,Yes, graduate ,55.0
+S036,male,,,,56.0,3.0,25.0,No,No,High School,68.0
+S037,Male,18.0,,105.0,78.0,3.0,25.0,Yes,No, graduate ,
+S038,Female,19.0,3.0,90.0,89.0,5.0,25.0, yes ,Yes,Graduate,68.0
+S039,Male,21.0,4.0,90.0,45.0,5.0,25.0,Yes,,Post Graduate,72.0
+S040, FEMALE ,19.0,2.0,105.0,78.0,4.0,30.0,NO,Yes,Post Graduate,72.0
+S041,male,18.0,3.0,90.0,,3.0,20.0,Yes,No,Graduate,85.0
+S042, FEMALE ,21.0,2.0,,,4.0,35.0,Yes,Yes, graduate ,72.0
+S043,male,21.0,6.0,82.0,89.0,3.0,30.0,NO,Yes, graduate ,55.0
+S044, FEMALE ,21.0,3.0,105.0,78.0,3.0,35.0,Yes,No, graduate ,55.0
+S045,Female,,6.0,,56.0,4.0,35.0,Yes,Yes,High School,68.0
+S046,Male,21.0,,75.0,-5.0,,,Yes,, graduate ,
+S047,male,20.0,,90.0,45.0,5.0,25.0, yes ,No,Graduate,68.0
+S048,Female,18.0,3.0,82.0,56.0,4.0,25.0,Yes,, graduate ,72.0
+S049,Male,21.0,2.0,75.0,78.0,5.0,25.0,No,Yes,Graduate,
+S050, FEMALE ,19.0,,90.0,67.0,5.0,20.0,No,Yes,Post Graduate,55.0
+S051,Female,20.0,,,,3.0,,No,No,High School,85.0
+S052, FEMALE ,20.0,,75.0,56.0,,, yes ,, graduate ,85.0
+S053,Female,19.0,3.0,90.0,,3.0,,No,,Graduate,85.0
+S054,male,20.0,6.0,105.0,-5.0,4.0,35.0,NO,No,Post Graduate,
+S055, FEMALE ,21.0,5.0,90.0,56.0,,20.0,Yes,Yes,Graduate,72.0
+S056,male,20.0,2.0,,-5.0,4.0,35.0,Yes,No, graduate ,85.0
+S057,male,,2.0,,67.0,,30.0,No,Yes,Post Graduate,68.0
+S058,male,18.0,3.0,82.0,-5.0,4.0,25.0, yes ,No,High School,55.0
+S059,Male,19.0,4.0,90.0,89.0,5.0,25.0, yes ,Yes,High School,72.0
+S060, FEMALE ,20.0,1.0,90.0,89.0,5.0,, yes ,No,Graduate,40.0
+S061, FEMALE ,18.0,6.0,105.0,-5.0,3.0,35.0,No,No,Post Graduate,40.0
+S062, FEMALE ,18.0,,105.0,-5.0,5.0,20.0, yes ,, graduate ,85.0
+S063, FEMALE ,18.0,4.0,,89.0,4.0,, yes ,No,Post Graduate,55.0
+S064,male,21.0,2.0,75.0,67.0,3.0,, yes ,, graduate ,40.0
+S065,male,20.0,2.0,,89.0,4.0,30.0,Yes,,High School,40.0
+S066, FEMALE ,21.0,1.0,105.0,45.0,5.0,30.0, yes ,No,High School,55.0
+S067,male,,4.0,75.0,89.0,,30.0, yes ,, graduate ,40.0
+S068, FEMALE ,,2.0,75.0,,,,Yes,, graduate ,40.0
+S069,Female,,,90.0,45.0,4.0,20.0,Yes,,Post Graduate,55.0
+S070,Male,18.0,4.0,90.0,45.0,,30.0,Yes,, graduate ,55.0
+S071,Male,,1.0,82.0,45.0,5.0,30.0,Yes,No, graduate ,55.0
+S072,Female,21.0,5.0,,67.0,,35.0,Yes,No, graduate ,68.0
+S073, FEMALE ,18.0,5.0,90.0,56.0,,25.0, yes ,,Graduate,68.0
+S074,male,19.0,,90.0,-5.0,4.0,,No,No,Post Graduate,
+S075, FEMALE ,18.0,6.0,105.0,67.0,3.0,20.0,Yes,, graduate ,
+S076,Male,20.0,2.0,82.0,89.0,4.0,30.0,Yes,Yes,High School,85.0
+S077,Female,19.0,3.0,90.0,56.0,5.0,20.0,NO,No,Post Graduate,55.0
+S078, FEMALE ,18.0,,105.0,67.0,3.0,25.0,NO,Yes,Graduate,
+S079,Male,19.0,,,45.0,3.0,30.0, yes ,No,Post Graduate,
+S080,male,19.0,4.0,105.0,56.0,4.0,25.0,No,Yes, graduate ,40.0
+S081, FEMALE ,,2.0,105.0,67.0,5.0,20.0,Yes,No,High School,72.0
+S082, FEMALE ,,6.0,,,,20.0,No,,High School,40.0
+S083, FEMALE ,20.0,3.0,90.0,67.0,4.0,25.0,No,,Graduate,55.0
+S084,Male,19.0,3.0,105.0,67.0,4.0,30.0,Yes,No, graduate ,55.0
+S085, FEMALE ,,6.0,82.0,56.0,4.0,,NO,, graduate ,68.0
+S086,male,19.0,3.0,,45.0,3.0,30.0,NO,Yes,Graduate,85.0
+S087,Female,21.0,5.0,105.0,78.0,5.0,30.0,Yes,No,High School,85.0
+S088, FEMALE ,21.0,3.0,75.0,89.0,3.0,25.0,Yes,Yes,Post Graduate,40.0
+S089, FEMALE ,20.0,5.0,75.0,56.0,4.0,20.0,NO,, graduate ,72.0
+S090, FEMALE ,20.0,1.0,90.0,89.0,4.0,,No,No,High School,40.0
+S091, FEMALE ,21.0,1.0,82.0,89.0,3.0,35.0,Yes,Yes,Post Graduate,40.0
+S092,male,20.0,,,,,25.0, yes ,,Graduate,
+S093,male,21.0,2.0,75.0,,3.0,25.0,NO,No,Graduate,72.0
+S094,Male,21.0,4.0,75.0,89.0,4.0,30.0,NO,,Post Graduate,40.0
+S095,Male,,,75.0,89.0,5.0,25.0,NO,,Post Graduate,
+S096,male,19.0,,,56.0,4.0,35.0,Yes,,Post Graduate,40.0
+S097, FEMALE ,18.0,5.0,,45.0,4.0,35.0,NO,No,High School,40.0
+S098,Female,21.0,5.0,,67.0,5.0,20.0,NO,,Graduate,68.0
+S099, FEMALE ,21.0,2.0,82.0,89.0,,35.0, yes ,, graduate ,72.0
+S100, FEMALE ,21.0,5.0,,78.0,5.0,35.0,NO,No,High School,40.0
+S001,Female,19.0,5.0,82.0,89.0,5.0,30.0,No,No,High School,68.0
+S004,male,21.0,2.0,,56.0,5.0,30.0,Yes,No, graduate ,
+S009,Male,,3.0,82.0,,3.0,,NO,,High School,72.0
