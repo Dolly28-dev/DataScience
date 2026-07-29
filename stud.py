@@ -3,13 +3,14 @@ import pandas as pd
 import matplotlib.pyplot as plt 
 import seaborn as sns
 import numpy as np
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV
 from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
+from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 st.title("Students Performance Prediction Using Machine Learning")
 st.write("This application performs data cleaning and visualization on the Student Performance dataset.")
@@ -170,16 +171,6 @@ ax.set_xlabel("Gender")
 ax.set_ylabel("Count")
 st.pyplot(fig)
 
-st.subheader("Internet Access Distribution")
-internet = df["Internet_Access"].value_counts()
-fig, ax = plt.subplots()
-ax.pie(internet.values,
-       labels=internet.index,
-       autopct="%1.1f%%",
-       startangle=90)
-ax.set_title("Internet Access")
-st.pyplot(fig)
-
 st.subheader("Parent Education Distribution")
 parent = df["Parent_Education"].value_counts()
 fig, ax = plt.subplots()
@@ -209,36 +200,10 @@ ax.set_ylabel("Values")
 ax.legend()
 st.pyplot(fig)
 
-st.subheader("Attendance Trend")
-fig, ax = plt.subplots()
-ax.plot(df["Attendance"])
-ax.set_title("Attendance Trend")
-ax.set_xlabel("Students")
-ax.set_ylabel("Attendance")
-st.pyplot(fig) 
-
-st.subheader("Previous Marks and Final Exam Marks")
-fig, ax = plt.subplots(figsize=(10,6))
-ax.scatter(range(len(df)),df["Previous_Marks"],color="blue",marker="o",s=60,label="Previous Marks")
-ax.scatter(range(len(df)),df["Final_Exam_Marks"],color="red",marker="*",s=50,label="Final Exam Marks")
-ax.set_title("Previous Marks and Final Exam Marks")
-ax.set_xlabel("Student Index")
-ax.set_ylabel("Marks")
-ax.legend()
-st.pyplot(fig)
-
 st.subheader("Final Exam Marks Box Plot")
 fig, ax = plt.subplots()
 ax.boxplot(df["Final_Exam_Marks"])
 ax.set_title("Final Exam Marks")
-st.pyplot(fig)
-
-st.subheader("Internal Marks Area Chart")
-fig, ax = plt.subplots()
-ax.fill_between(range(len(df)), df["Internal_Marks"])
-ax.set_title("Internal Marks")
-ax.set_xlabel("Students")
-ax.set_ylabel("Marks")
 st.pyplot(fig)
 
 st.header("Final Exam Marks Distribution")
@@ -247,14 +212,6 @@ sns.histplot(data=df,x="Final_Exam_Marks",bins=10,kde=True,ax=ax)
 ax.set_title("Final Exam Marks Distribution")
 ax.set_xlabel("Final Exam Marks")
 ax.set_ylabel("Frequency")
-st.pyplot(fig)
-
-st.header("Study Hours vs Final Exam Marks")
-fig, ax = plt.subplots(figsize=(8,5))
-sns.scatterplot(data=df,x="Study_Hours",y="Final_Exam_Marks",hue="Gender",ax=ax)
-ax.set_title("Study Hours vs Final Exam Marks")
-ax.set_xlabel("Study Hours")
-ax.set_ylabel("Final Exam Marks")
 st.pyplot(fig)
 
 #Machine Learning
@@ -288,6 +245,11 @@ st.subheader("Train Test Split")
 X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2,random_state=42)
 st.write("Training Data Shape:", X_train.shape)
 st.write("Testing Data Shape:", X_test.shape)
+
+scaler = StandardScaler()
+
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
 
 st.subheader("Train Logistic Regression Model")
 model = LogisticRegression(max_iter=1000,class_weight="balanced")
@@ -367,6 +329,42 @@ st.subheader("SVM Actual vs Prediction")
 svm_result = pd.DataFrame({"Actual": y_test.values,"Prediction": y_pred_svm})
 st.dataframe(svm_result)
 
+#Cross Validation
+st.header("Cross Validation")
+
+cv_scores = cross_val_score(svm, X_train, y_train, cv=5)
+
+st.write("Cross Validation Scores:")
+st.write(cv_scores)
+
+st.write("Average Cross Validation Accuracy:")
+st.success(f"{cv_scores.mean()*100:.2f}%")
+
+#Grid Search
+
+st.header("Grid Search")
+
+param_grid = {
+    "C": [0.1, 1, 10],
+    "kernel": ["linear", "rbf"],
+    "gamma": ["scale", "auto"]
+}
+
+grid = GridSearchCV(
+    SVC(),
+    param_grid,
+    cv=5,
+    scoring="accuracy"
+)
+
+grid.fit(X_train, y_train)
+
+st.subheader("Best Hyperparameters")
+st.write(grid.best_params_)
+
+st.subheader("Best Cross Validation Accuracy")
+st.success(f"{grid.best_score_*100:.2f}%")
+
 #Compare
 st.header("Algorithm Comparison")
 comparison = pd.DataFrame({
@@ -384,6 +382,21 @@ comparison = pd.DataFrame({
 
 st.dataframe(comparison)
 
+st.subheader("Algorithm Accuracy Comparison Graph")
+
+fig, ax = plt.subplots(figsize=(6,4))
+
+ax.bar(
+    comparison["Algorithm"],
+    comparison["Accuracy (%)"]
+)
+
+ax.set_title("Algorithm Accuracy Comparison")
+ax.set_xlabel("Algorithms")
+ax.set_ylabel("Accuracy (%)")
+
+st.pyplot(fig)
+
 # Student Performance Prediction
 
 st.header("Predict Student Performance")
@@ -397,7 +410,7 @@ assignments = st.number_input("Assignments Completed", min_value=0, max_value=20
 internal_marks = st.number_input("Internal Marks", min_value=0, max_value=100, value=50)
 extra = st.selectbox("Extracurricular", ["Yes", "No"])
 internet = st.selectbox("Internet Access", ["Yes", "No"])
-parent = st.selectbox("Parent Education", ["Graduate", "Postgraduate", "School"])
+parent = st.selectbox("Parent Education", ["Graduate", "Postgraduate", "High School"])
 
 # Encoding
 gender = 1 if gender == "Male" else 0
@@ -406,7 +419,7 @@ internet = 1 if internet == "Yes" else 0
 
 if parent == "Graduate":
     parent = 0
-elif parent == "Postgraduate":
+elif parent == "High School":
     parent = 1
 else:
     parent = 2
@@ -414,24 +427,31 @@ else:
 if st.button("Predict Performance"):
 
     input_data = pd.DataFrame({
-        "Gender":[gender],
-        "Age":[age],
-        "Study_Hours":[study_hours],
-        "Attendance":[attendance],
-        "Previous_Marks":[previous_marks],
-        "Assignments_Completed":[assignments],
-        "Internal_Marks":[internal_marks],
-        "Extracurricular":[extra],
-        "Internet_Access":[internet],
-        "Parent_Education":[parent]
+        "Gender": [gender],
+        "Age": [age],
+        "Study_Hours": [study_hours],
+        "Attendance": [attendance],
+        "Previous_Marks": [previous_marks],
+        "Assignments_Completed": [assignments],
+        "Internal_Marks": [internal_marks],
+        "Extracurricular": [extra],
+        "Internet_Access": [internet],
+        "Parent_Education": [parent]
     })
 
-    prediction = model.predict(input_data)
+    st.dataframe(input_data)
 
-    if prediction[0] == 1:
-        st.success("Prediction: Good Performance (Pass)")
-        st.write("The student is likely to score 50 or more marks in the final exam.")
-    else:
+    if internal_marks < 50 or previous_marks < 50:
         st.error("Prediction: Poor Performance (Fail)")
         st.write("The student is likely to score below 50 marks in the final exam.")
 
+    else:
+        input_scaled = scaler.transform(input_data)
+        prediction = svm.predict(input_scaled)
+
+        if prediction[0] == 1:
+            st.success("Prediction: Good Performance (Pass)")
+            st.write("The student is likely to score 50 or more marks in the final exam.")
+        else:
+            st.error("Prediction: Poor Performance (Fail)")
+            st.write("The student is likely to score below 50 marks in the final exam.")
