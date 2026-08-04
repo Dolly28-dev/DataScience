@@ -8,12 +8,12 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from sklearn.preprocessing import StandardScaler
-from sklearn.ensemble import RandomForestClassifier
+
 st.title("Students Performance Prediction Using Machine Learning")
 st.write("This application performs data cleaning and visualization on the Student Performance dataset.")
+
 df = pd.read_csv("student_performance_dataset.csv")
 
 #Data Cleaning
